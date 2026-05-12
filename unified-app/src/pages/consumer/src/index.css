@@ -1,0 +1,91 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif;
+  color: #0f172a;
+  background-color: #fafafa;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fafafa;
+  color: #0f172a;
+}
+
+button,
+input {
+  font: inherit;
+  outline: none;
+}
+
+/* Custom styles for hide scrollbar but allow scrolling */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  header,
+  footer,
+  .receipt-actions {
+    display: none !important;
+  }
+
+  .receipt-page {
+    max-width: none;
+    padding: 0;
+  }
+
+  .receipt-card {
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+  }
+}
+
+/* Custom Animations */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(var(--tw-rotate, 2deg)); }
+  50% { transform: translateY(-10px) rotate(calc(var(--tw-rotate, 2deg) + 1deg)); }
+  100% { transform: translateY(0px) rotate(var(--tw-rotate, 2deg)); }
+}
+
+@keyframes float-reverse {
+  0% { transform: translateY(0px) rotate(var(--tw-rotate, -2deg)); }
+  50% { transform: translateY(-10px) rotate(calc(var(--tw-rotate, -2deg) - 1deg)); }
+  100% { transform: translateY(0px) rotate(var(--tw-rotate, -2deg)); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 6s ease-in-out infinite;
+}
